@@ -9,6 +9,6 @@
 1. API Rest utilizando dotNet Core 3.1
 2. Implementado Mediator Pathern
 3. Implementado Migrations no projeto CORE para criação de banco local
-3.1 Aoexecutar migrations já é por padrão criado alguns dados para exemplificação do funcionamento
-4. Implementado padrão Repository 
-5. Implementação em Camadas(Projetos) para facilitar manutenção de código e reutilização
+4. Ao executar migrations já por padrão são criados alguns dados para exemplificação do funcionamento
+5. Implementado Repository Pathern
+6. Implementação em Camadas(Projetos) para facilitar manutenção de código e reutilização
