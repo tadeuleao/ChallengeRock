@@ -1,7 +1,8 @@
 # ChallengeRock
+## Interface simples, a ideia do projeto e simular funcionalidade de curtir posts
 
 * FrontEnd
-1. Pasta React como o próprio nome diz, foi desenvolvido em react com reutilização de componentes
+1. Pasta React como o próprio nome diz, foi desenvolvido em react com reutilização de componentes e 
 2. Possui Contexto para compartilhar estado entre os componentes
 3. Possui classe API.js especifica para conectar em API(s) Rest
  
