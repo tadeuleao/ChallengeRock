@@ -27,6 +27,7 @@ class API {
 
     //PUT
     static put(resource, data) {
+        console.log(data)
         return fetch(process.env.REACT_APP_POSTS + resource, {
                 headers: {
                     'Accept': 'application/json',

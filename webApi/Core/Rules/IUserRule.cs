@@ -8,5 +8,6 @@ namespace Core.Rules
     public interface IUserRule
     {
         UserDTO ListUser(string login, string password);
+        UserDTO AddUser(UserDTO dto);
     }
 }

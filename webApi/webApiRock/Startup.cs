@@ -36,10 +36,14 @@ namespace webApiRock
             services.AddTransient(typeof(IUserRule), typeof(UserRule));
             services.AddTransient(typeof(IPostRule), typeof(PostRule));
             services.AddTransient(typeof(IHistoryRule), typeof(HistoryRule));
+            
             var config = new AutoMapper.MapperConfiguration(cfg =>
             {
+                cfg.CreateMap<UserDTO, Users>();
                 cfg.CreateMap<Users, UserDTO>();
                 cfg.CreateMap<UserDTO, QueryUserResponse>();
+                cfg.CreateMap<UserDTO, CreateUserResponse>();
+                cfg.CreateMap<CreateUserRequest, UserDTO>();
                 cfg.CreateMap<Posts, PostDTO>().ForMember(dest => dest.Handle , 
                     opt => opt.MapFrom(src => src.Id));
                 cfg.CreateMap<PostDTO, Posts>();
@@ -50,8 +54,6 @@ namespace webApiRock
                 cfg.CreateMap<int, CreatePostResponse>();
                 cfg.CreateMap<bool, CreatePostResponse>();
                 cfg.CreateMap<bool, UpdatePostResponse>();
-
-
             });
             IMapper mapper = config.CreateMapper();
             services.AddSingleton(mapper);

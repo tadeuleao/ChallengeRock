@@ -1,27 +1,24 @@
 import React , {useState, useEffect} from 'react'
 import {Card , Button , Badge} from 'react-bootstrap/'
 import API from '../../API/API'
-import {useContextPosts} from '../../Context/PostsContext'
 
 export default function Posts(props){
     const [text , setText] = useState("Like")
     const [statusButton , setStatusButton] = useState("light")
     const [countLike , serCountLike] = useState(props.like)
     const [statusLike,setStatusLike] = useState(props.statusLike)
-    const {isAuthenticate , setIsAuthenticate} = useContextPosts();
-
+    const [user , setUser] = useState(localStorage.getItem("codUser"))
+    
     const addLike = (handle) => {
-        debugger;
-        console.log(isAuthenticate)
         if(statusLike === false){
-            const data = {"IdPost":handle , "IdUser": 1};
+            console.log(user)
+            const data = {"IdPost":handle , "IdUser": parseInt(user)};
             alterStatus(); 
-            API.put("LikePost",data);                       
+            API.put("LikePost",data);                  
         }       
     }
 
     const alterStatus = () =>{
-        console.log("adas")
         setText("Liked");
         setStatusButton("primary");
         serCountLike(Number(countLike) +1);
@@ -39,7 +36,7 @@ export default function Posts(props){
 
     return(
         <div>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '18rem' , margin: 'auto' , marginTop:'5px' }}>
                 <Card.Body>
                     <Card.Title>{props.tittle}</Card.Title>
                     <Card.Text>

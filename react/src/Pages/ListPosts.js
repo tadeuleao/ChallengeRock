@@ -13,7 +13,10 @@ class ListPosts extends React.Component {
       }
 
     componentDidMount() {
-        API.get("Posts?IdUser=1&PageCurrent=0&QuantityItems=0")
+
+        let user = localStorage.getItem("codUser");
+
+        API.get("Posts?IdUser="+user+"&PageCurrent=0&QuantityItems=0")
             .then(rs => {
                 this.setState({data:rs.data});
             });

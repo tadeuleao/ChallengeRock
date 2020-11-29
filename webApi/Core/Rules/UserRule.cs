@@ -39,5 +39,23 @@ namespace Core.Rules
                 throw new UserException("Fail: " + e.Message);
             }
         }
+
+        public UserDTO AddUser(UserDTO dto)
+        {
+            try
+            {
+                var entity = _mapper.Map<UserDTO, Users>(dto);
+                if (_userRepository.List(u => u.Login.Equals(dto.Login)).Any())
+                {
+                    return dto;
+                }
+                var user  = _userRepository.Add(entity);
+                return _mapper.Map<Users, UserDTO>(user);
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
     }
 }
